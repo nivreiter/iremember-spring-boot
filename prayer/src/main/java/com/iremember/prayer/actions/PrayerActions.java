@@ -33,6 +33,8 @@ public class PrayerActions {
 		
 		char[] charArray = firstName.toCharArray();
 		List<String> nameKitVerses = new ArrayList<String>();
+		
+		charArray = handleUpperLetter(charArray);
 		for (char c : charArray) {
 			List<String> tmp = kitVerses.stream().filter(s -> s.startsWith(String.valueOf(c))).collect(Collectors.toList());
 			nameKitVerses.addAll(tmp);
@@ -46,6 +48,31 @@ public class PrayerActions {
 	}
 	
 	
+	private char[] handleUpperLetter(char[] charArray) {
+		int i = 0;
+		for (char c : charArray) {
+			if(c == 'ם') {
+				charArray[i] = 'מ';
+			}
+			else if(c == 'ף') {
+				charArray[i] = 'פ';
+			}
+			else if(c == 'ץ') {
+				charArray[i] = 'צ';
+			}
+			else if(c == 'ך') {
+				charArray[i] = 'כ';
+			}
+			else if(c == 'ן') {
+				charArray[i] = 'נ';
+			}
+			i++;
+		}
+		
+		return charArray;
+		
+	}
+
 	private List<String> getTokensWithCollection(String str) {
 	    return Collections.list(new StringTokenizer(str, "\r\n")).stream()
 	      .map(token -> (String) token)

@@ -11,6 +11,7 @@
 	<groupId>com.iremember</groupId>
 	<artifactId>prayer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>prayer</name>
 	<description>Prayer</description>
 	<properties>
